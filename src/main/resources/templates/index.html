@@ -1,11 +1,15 @@
 <!DOCTYPE html>
-<html   xmlns:th="http://www.thymeleaf.org"
+<html   xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:th="http://www.thymeleaf.org"
+        xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
         lang="en">
-<head>
+<head th:replace="templates.layout/template :: head">
+
     <meta charset="UTF-8">
     <title>Home</title>
 </head>
 <body>
+    <header th:replace="templates.layout/template :: header"></header>
     <div th:if="${users != null and !users.empty}">
         <table border="1">
             <tr>
@@ -33,6 +37,6 @@
         </table>
     </div>
 
-    <footer th:replace="templates.layout/template :: footer"></footer>
+
 </body>
 </html>
