@@ -19,7 +19,7 @@ public class UserController {
 
     @GetMapping("/")
     public String index(Model model, @AuthenticationPrincipal User user){
-        Iterable<UserEntitie> users= userService.getAllUsers();
+        Iterable<UserEntitie> users= userService.getAllUser();
         log.info("Ejecutando el controlador index de UserController");
         log.info("Actual user:" + user);
         model.addAttribute("users", users);

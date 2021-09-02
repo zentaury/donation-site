@@ -1,3 +1,4 @@
+/*
 package sv.com.ti.donationsite.domain.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,3 +41,4 @@ public class UserServiceImpl implements UserService{
         return userRepository.findById(user.getUserId()).orElse(null);
     }
 }
+*/
