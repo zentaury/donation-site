@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html   xmlns:th="http://www.thymeleaf.org"
+        lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+    <div th:if="${users != null and !users.empty}">
+        <table border="1">
+            <tr>
+                <th>ID</th>
+                <th>Country</th>
+                <th>Surnames</th>
+                <th>Name</th>
+                <th>Username</th>
+                <th>email</th>
+                <th>password</th>
+                <th>ID Document</th>
+                <th>Institution</th>
+            </tr>
+            <tr th:each="user : ${users}">
+                <td th:text="${user.userId}"></td>
+                <td th:text="${user.countryId}"></td>
+                <td th:text="${user.surnames}"></td>
+                <td th:text="${user.name}"></td>
+                <td th:text="${user.username}"></td>
+                <td th:text="${user.email}"></td>
+                <td th:text="${user.password}"></td>
+                <td th:text="${user.idDocument}"></td>
+                <td th:text="${user.institution}"></td>
+            </tr>
+        </table>
+    </div>
+
+    <footer th:replace="templates.layout/template :: footer"></footer>
+</body>
+</html>
