@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html   xmlns:th="http://www.thymeleaf.org"
+        lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+    <div th:if="${users != null and !users.empty}">
+        <table border="1">
+            <tr>
+                <th>ID</th>
+                <th>Country</th>
+                <th>Surnames</th>
+                <th>Name</th>
+                <th>Username</th>
+                <th>email</th>
+                <th>password</th>
+                <th>ID Document</th>
+                <th>Institution</th>
+            </tr>
+            <tr th:each="user : ${users}">
+                <td th:text="${user.getUserId()}"></td>
+                <td th:text="${user.getCountryId()}"></td>
+                <td th:text="${user.getSurnames()}"></td>
+                <td th:text="${user.getName()}"></td>
+                <td th:text="${user.getUsername()}"></td>
+                <td th:text="${user.getEmail()}"></td>
+                <td th:text="${user.getPassword()}"></td>
+                <td th:text="${user.getIdDocument()}"></td>
+                <td th:text="${user.getInstitution()}"></td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
