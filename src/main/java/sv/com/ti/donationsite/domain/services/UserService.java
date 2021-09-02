@@ -9,6 +9,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import sv.com.ti.donationsite.domain.entities.RolEntitie;
 import sv.com.ti.donationsite.domain.entities.UserEntitie;
 import sv.com.ti.donationsite.repositories.UserRepository;
@@ -24,6 +25,7 @@ public class UserService implements UserDetailsService {
     private UserRepository userRepository;
 
     @Override
+    @Transactional(readOnly = true)
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         UserEntitie user = userRepository.findByUsername(username);
         if (user == null){
@@ -36,6 +38,7 @@ public class UserService implements UserDetailsService {
         return new User(user.getUsername(), user.getPassword(), roles);
     }
 
+    @Transactional(readOnly = true)
     public List<UserEntitie> getAllUser(){
         return userRepository.findAll();
     }
