@@ -16,7 +16,8 @@ public class CountryEntitie {
     private String iso;
     private String name;
     private String nicename;
-    private String is3;
-    private int numcode;
+    private String iso3;
+    @Column(name = "numcode")
+    private String numCode;
     private int phonecode;
 }
