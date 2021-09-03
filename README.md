@@ -7,9 +7,6 @@ he following project follows a creation under MVC and DDD structure following th
 3. Download the MAVEN dependencies for the correct operation of the project.
 4. Run the application.
 
-##Entity Relationship Diagram
-![DB] (https://raw.githubusercontent.com/zentaury/donation-site/main/db/Entity%20Relationship%20Diagram.png)
-
 ## PROJECT STRUCTURE
 
 ```
