@@ -19,6 +19,7 @@ import sv.com.ti.donationsite.domain.entities.TransactionEntity;
 import sv.com.ti.donationsite.domain.entities.UserEntity;
 import sv.com.ti.donationsite.domain.services.*;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
@@ -47,13 +48,24 @@ public class DonationController {
 
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         String username = ((UserDetails)principal).getUsername();
+
         UserEntity userEntity = userService.getUserEntityByUsername(username);
-        Iterable<DonationEntity> donatios = donationService.findAllByUser(userEntity.getUserId());
+        List<DonationEntity> donations = donationService.findAllByUser(userEntity.getUserId());
+        List<DonationEntity> donationsFixed = new ArrayList<DonationEntity>();
+
         int visitsPerDay = visitService.visitsPerDay(new Date());
         Long allVisits = visitService.allVisits();
+
+        donations.forEach(donation -> {
+            donation.setCountryName(getCountryNameById(donation.getCountryId()));
+            donationsFixed.add(donation);
+        });
+
+
+        model.addAttribute("controller", DonationController.class);
         model.addAttribute("allVisits", allVisits);
         model.addAttribute("visitsPerDay", visitsPerDay);
-        model.addAttribute("donations", donatios);
+        model.addAttribute("donations", donationsFixed);
         return "index";
     }
 
@@ -94,6 +106,10 @@ public class DonationController {
             return "donationFailed";
         }
 
+        if (donationForm == null){
+            return "index";
+        }
+
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         String username = ((UserDetails)principal).getUsername();
         UserEntity userEntity = userService.getUserEntityByUsername(username);
@@ -106,5 +122,11 @@ public class DonationController {
         donationService.saveDonation(donation);
 
         return "donationSuccess";
+    }
+
+    public String getCountryNameById(Long id){
+        List<CountryEntity> allCountries = countryService.getAllCountries();
+     CountryEntity country =  allCountries.stream().filter(countryEntity -> countryEntity.getId() == id).findAny().orElse(null);
+     return country.getName();
     }
 }

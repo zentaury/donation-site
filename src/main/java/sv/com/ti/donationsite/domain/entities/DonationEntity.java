@@ -25,4 +25,6 @@ public class DonationEntity {
     @Column(name = "amount")
     private double amount;
     private Date date;
+    @Transient
+    private String countryName;
 }

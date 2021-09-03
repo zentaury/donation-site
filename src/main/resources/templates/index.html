@@ -55,9 +55,8 @@
                 <tbody>
                 <tr th:each="donation : ${donations}">
                     <td th:text="${donation.donationId}"></td>
-
                     <td th:text="${donation.transactionId}"></td>
-                    <td th:text="${donation.countryId}"></td>
+                    <td th:text="${donation.countryName}"></td>
                     <td th:text="${donation.institution}"></td>
                     <td th:text="${donation.amount}"></td>
                     <td th:text="${donation.date}"></td>
