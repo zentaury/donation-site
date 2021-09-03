@@ -15,6 +15,18 @@ public class DonationResource {
     String surnames, name, email, idDocument, country, institution, donationAmount;
     Date dateDonation;
 
+    public DonationResource(Long id, String surnames, String name, String email, String idDocument, String country, String institution, String donationAmount, Date dateDonation) {
+        this.id = id;
+        this.surnames = surnames;
+        this.name = name;
+        this.email = email;
+        this.idDocument = idDocument;
+        this.country = country;
+        this.institution = institution;
+        this.donationAmount = donationAmount;
+        this.dateDonation = dateDonation;
+    }
+
     public Long getId() {
         return id;
     }
@@ -85,5 +97,10 @@ public class DonationResource {
 
     public void setDateDonation(Date dateDonation) {
         this.dateDonation = dateDonation;
+    }
+
+    @Override
+    public String toString(){
+        return "DonationResource [id="+id+", surnames="+surnames+", name="+name+", email="+email+", idDocument="+idDocument+", country="+country+", institution="+institution+", donationAmount="+donationAmount+", dateDonation="+dateDonation+"]";
     }
 }

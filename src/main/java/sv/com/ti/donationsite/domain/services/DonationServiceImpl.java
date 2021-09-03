@@ -3,6 +3,7 @@ package sv.com.ti.donationsite.domain.services;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import sv.com.ti.donationsite.domain.DTOs.donation.DonationResource;
 import sv.com.ti.donationsite.domain.entities.DonationEntity;
 import sv.com.ti.donationsite.repositories.DonationRepository;
 
@@ -17,11 +18,6 @@ public class DonationServiceImpl implements DonationService{
 
 
     @Override
-    public List<DonationEntity> findAllDonations() {
-        return donationRepository.findAllDonations();
-    }
-
-    @Override
     @Transactional(readOnly = true)
     public List<DonationEntity> findAllByUser(Long userId) {
         return donationRepository.findAllByUser(userId);
@@ -32,6 +28,11 @@ public class DonationServiceImpl implements DonationService{
         return donationRepository.donationCount(donationCountryId, month, year);
     }
 
+    @Override
+    @Transactional(readOnly = true)
+    public List<DonationResource> findAllDonations(){
+        return donationRepository.findAllDonations();
+    }
 
     @Override
     @Transactional
