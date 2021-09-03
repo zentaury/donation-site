@@ -14,7 +14,11 @@ localhost/api/v1/donations
 ```
 localhost/api/v1/countries
 ```
-
+## LOGIN USER
+```
+username: zentaury
+pass: admin
+```
 
 ## PROJECT STRUCTURE
 
