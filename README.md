@@ -1,6 +1,6 @@
 # ONLINE DONATION SITE
-he following project follows a creation under MVC and DDD structure following the order for an orderly and persistent development, suitable for scalability.
-
+The project follows a creation based on MVC in addition to implementing a DDD structure to maintain order and persistence in the scaling of the application, 
+as well as being easier to maintain and understand.
 ## INSTRUCTIONS 
 1. Inside the db folder you can find the .sql file so you can run it in your MySQL database manager. You will also find the Entity Relationship diagram
 2. If you have a password for your database manager you can place it in the application.properties file to be able to connect correctly.
