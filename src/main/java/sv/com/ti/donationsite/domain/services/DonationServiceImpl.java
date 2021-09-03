@@ -6,6 +6,7 @@ import org.springframework.transaction.annotation.Transactional;
 import sv.com.ti.donationsite.domain.entities.DonationEntitie;
 import sv.com.ti.donationsite.repositories.DonationRepository;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -24,6 +25,11 @@ public class DonationServiceImpl implements DonationService{
     @Transactional(readOnly = true)
     public List<DonationEntitie> findAllByUser(Long userId) {
         return donationRepository.findAllByUser(userId);
+    }
+
+    @Override
+    public int donationCount(Long donationCountryId, Date month, Date year) {
+        return donationRepository.donationCount(donationCountryId, month, year);
     }
 
 

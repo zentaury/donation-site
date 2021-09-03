@@ -9,30 +9,68 @@
     <title>Home</title>
 </head>
 <body>
-    <header th:replace="templates.layout/template :: header"></header>
-    <div th:if="${donations != null and !donations.empty}">
-        <table border="1">
-            <tr>
-                <th>ID</th>
-                <th>User</th>
-                <th>Transaction</th>
-                <th>Country</th>
-                <th>Institution</th>
-                <th>Amount</th>
-                <th>Date</th>
-            </tr>
-            <tr th:each="donation : ${donations}">
-                <td th:text="${donation.donationId}"></td>
-                <td th:text="${donation.userId}"></td>
-                <td th:text="${donation.transactionId}"></td>
-                <td th:text="${donation.countryId}"></td>
-                <td th:text="${donation.institution}"></td>
-                <td th:text="${donation.amount}"></td>
-                <td th:text="${donation.date}"></td>
-            </tr>
-        </table>
+<header th:replace="templates.layout/template :: header">
+</header>
+<div class="container" style="margin-top: 10px;">
+    <div class="row">
+        <div class="col-md-9"></div>
+        <div class="col-md-3"> <!-- Button trigger modal -->
+            <a th:href="@{/donation}" class="btn btn-success btn-sm">
+                <i class="fas fa-hand-holding-usd"></i> Make A Donation!
+            </a></div>
     </div>
+    <br>
+    <div>
+        <div th:if="${donations.isEmpty()}">
+            <div class="d-flex justify-content-center" style="margin-top: 50px;">
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="https://c.tenor.com/2U1vE6V2QmkAAAAM/john-cena-shocked.gif" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">WAIT!</h5>
+                        <p class="card-text">You have not made any donation</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div th:if="${donations != null and !donations.empty}">
+            <table border="1" class="table" id="table">
+                <thead class="thead-dark">
+                <tr>
+                    <th>ID</th>
 
+                    <th>Transaction</th>
+                    <th>Country</th>
+                    <th>Institution</th>
+                    <th>Amount</th>
+                    <th>Date</th>
+                </tr>
+                </thead>
+
+                <tbody>
+                <tr th:each="donation : ${donations}">
+                    <td th:text="${donation.donationId}"></td>
+
+                    <td th:text="${donation.transactionId}"></td>
+                    <td th:text="${donation.countryId}"></td>
+                    <td th:text="${donation.institution}"></td>
+                    <td th:text="${donation.amount}"></td>
+                    <td th:text="${donation.date}"></td>
+                </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+
+
+<script>
+    $(document).ready( function () {
+        $('#table').DataTable();
+    } );
+</script>
 
 </body>
 </html>
