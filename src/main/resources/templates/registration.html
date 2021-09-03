@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Sing Up</title>
+</head>
+<body>
+    <h1>Sing Up</h1>
+    <a th:href="@{/}">Regresar</a>
+
+    <form th:action="@{/user/registration}" method="post" th:object="${userEntitie}">
+        <label for="countryId">Country</label>
+        <input type="text" name="countryId" th:field="*{countryId}"/>
+        <br/>
+        <label for="surnames">Surnames</label>
+        <input type="text" name="surnames" th:field="*{surnames}"/>
+        <br/>
+        <label for="name">Name</label>
+        <input type="text" name="name" th:field="*{name}"/>
+        <br/>
+        <label for="email">email</label>
+        <input type="email" name="email" th:field="*{email}"/>
+        <br/>
+        <label for="username">Username</label>
+        <input type="text" name="username" th:field="*{username}"/>
+        <br/>
+        <label for="password">Password</label>
+        <input type="password" name="password" th:field="*{password}"/>
+        <br/>
+        <label for="idDocument">ID Document</label>
+        <input type="text" name="idDocument" th:field="*{idDocument}"/>
+        <br/>
+        <label for="institution">Institution</label>
+        <input type="text" name="institution" th:field="*{institution}"/>
+        <br/>
+        <input type="submit" name="save" value="save">
+    </form>
+
+
+
+
+</body>
+</html>

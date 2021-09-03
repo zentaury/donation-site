@@ -15,5 +15,7 @@ public class RolEntitie implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long rolId;
     private String name;
+    @Column(name = "user_fk")
+    private Long userId;
 
 }
