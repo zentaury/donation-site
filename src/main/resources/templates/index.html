@@ -21,6 +21,17 @@
     </div>
     <br>
     <div>
+        <div th:if="${donations.isEmpty()}">
+            <div class="d-flex justify-content-center" style="margin-top: 50px;">
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="https://c.tenor.com/2U1vE6V2QmkAAAAM/john-cena-shocked.gif" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">WAIT!</h5>
+                        <p class="card-text">You have not made any donation</p>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div th:if="${donations != null and !donations.empty}">
             <table border="1" class="table" id="table">
                 <thead class="thead-dark">
