@@ -19,7 +19,7 @@ localhost/api/v1/countries
 ## PROJECT STRUCTURE
 
 ```
-.
+C:.
 │   .gitignore
 │   DonationSite.iml
 │   HELP.md
@@ -188,7 +188,7 @@ localhost/api/v1/countries
 │   │   │                   │   │
 │   │   │                   │   └───api
 │   │   │                   │           CountryRestController.java
-│   │   │                   │           DonationRestController.java
+│   │   │                   │           DonationsApiController.java
 │   │   │                   │
 │   │   │                   ├───domain
 │   │   │                   │   ├───DTOs
@@ -196,7 +196,7 @@ localhost/api/v1/countries
 │   │   │                   │   │   │
 │   │   │                   │   │   └───donation
 │   │   │                   │   │           DonationForm.java
-│   │   │                   │   │           DonationResource.java
+│   │   │                   │   │           DonationResponse.java
 │   │   │                   │   │
 │   │   │                   │   ├───entities
 │   │   │                   │   │       CountryEntity.java
@@ -290,7 +290,7 @@ localhost/api/v1/countries
     │   │               │   │
     │   │               │   └───api
     │   │               │           CountryRestController.class
-    │   │               │           DonationRestController.class
+    │   │               │           DonationsApiController.class
     │   │               │
     │   │               ├───domain
     │   │               │   ├───DTOs
@@ -298,7 +298,7 @@ localhost/api/v1/countries
     │   │               │   │   │
     │   │               │   │   └───donation
     │   │               │   │           DonationForm.class
-    │   │               │   │           DonationResource.class
+    │   │               │   │           DonationResponse.class
     │   │               │   │
     │   │               │   ├───entities
     │   │               │   │       CountryEntity.class
@@ -353,5 +353,6 @@ localhost/api/v1/countries
                 └───ti
                     └───donationsite
                             DonationSiteApplicationTests.class
+
 
 ```
