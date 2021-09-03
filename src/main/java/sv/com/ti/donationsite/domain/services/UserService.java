@@ -39,6 +39,15 @@ public class UserService implements UserDetailsService {
     }
 
     @Transactional
+    public UserEntitie getUserEntityByUsername(String username) throws UsernameNotFoundException {
+        UserEntitie user = userRepository.findByUsername(username);
+        if (user == null){
+            throw new UsernameNotFoundException(username);
+        }
+        return user;
+    }
+
+    @Transactional
     public void saveUser(UserEntitie user) {
         userRepository.save(user);
     }

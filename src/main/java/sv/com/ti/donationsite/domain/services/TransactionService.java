@@ -9,5 +9,7 @@ public interface TransactionService {
 
     public void saveTransaction(String cardOwner, String bankIssueId);
 
+    public TransactionEntitie getTransactionIdByCardOwnerAndBankIssueId(String cardOwner, String bankIssueId);
+
     public void deleteTransaction(TransactionEntitie transaction);
 }
