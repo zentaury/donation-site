@@ -38,6 +38,11 @@ public class UserService implements UserDetailsService {
         return new User(user.getUsername(), user.getPassword(), roles);
     }
 
+    @Transactional
+    public void saveUser(UserEntitie user) {
+        userRepository.save(user);
+    }
+
     @Transactional(readOnly = true)
     public List<UserEntitie> getAllUser(){
         return userRepository.findAll();
