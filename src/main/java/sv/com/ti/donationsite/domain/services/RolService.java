@@ -1,13 +1,13 @@
 package sv.com.ti.donationsite.domain.services;
 
-import sv.com.ti.donationsite.domain.entities.RolEntitie;
+import sv.com.ti.donationsite.domain.entities.RolEntity;
 
 import java.util.List;
 
 public interface RolService {
-    public List<RolEntitie> getAllRoles();
+    public List<RolEntity> getAllRoles();
 
-    public RolEntitie findRol(RolEntitie rol);
+    public RolEntity findRol(RolEntity rol);
 
-    public void saveRol(RolEntitie rol);
+    public void saveRol(RolEntity rol);
 }

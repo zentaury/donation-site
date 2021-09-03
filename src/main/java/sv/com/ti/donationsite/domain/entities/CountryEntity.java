@@ -7,7 +7,7 @@ import javax.persistence.*;
 @Data
 @Entity
 @Table(name = "country")
-public class CountryEntitie {
+public class CountryEntity {
     private static final long serialVersionUID = 1L;
 
     @Id

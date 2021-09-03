@@ -8,11 +8,12 @@ import java.util.Date;
 @Data
 @Entity
 @Table(name = "donation")
-public class DonationEntitie {
+public class DonationEntity {
     private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "donation_id")
     private Long donationId;
     @Column(name = "user_fk")
     private Long userId;
@@ -21,6 +22,7 @@ public class DonationEntitie {
     @Column(name = "country_fk")
     private Long countryId;
     private String institution;
+    @Column(name = "amount")
     private double amount;
     private Date date;
 }

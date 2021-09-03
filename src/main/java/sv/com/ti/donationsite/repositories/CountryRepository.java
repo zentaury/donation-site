@@ -1,7 +1,7 @@
 package sv.com.ti.donationsite.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import sv.com.ti.donationsite.domain.entities.CountryEntitie;
+import sv.com.ti.donationsite.domain.entities.CountryEntity;
 
-public interface CountryRepository extends JpaRepository<CountryEntitie, Long> {
+public interface CountryRepository extends JpaRepository<CountryEntity, Long> {
 }

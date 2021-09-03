@@ -1,20 +1,20 @@
 package sv.com.ti.donationsite.domain.services;
 
-import sv.com.ti.donationsite.domain.entities.DonationEntitie;
+import sv.com.ti.donationsite.domain.entities.DonationEntity;
 
 import java.util.Date;
 import java.util.List;
 
 public interface DonationService {
-    public List<DonationEntitie> getAllDonations();
+    List<DonationEntity> findAllDonations();
 
-    public List<DonationEntitie> findAllByUser(Long userId);
+    public List<DonationEntity> findAllByUser(Long userId);
 
     public int donationCount(Long donationCountryId, Date month, Date year);
 
-    public void saveDonation(DonationEntitie donation);
+    public void saveDonation(DonationEntity donation);
 
-    public void deleteDonation(DonationEntitie donation);
+    public void deleteDonation(DonationEntity donation);
 
-    public DonationEntitie findDonation(DonationEntitie donation);
+    public DonationEntity findDonation(DonationEntity donation);
 }

@@ -3,10 +3,9 @@ package sv.com.ti.donationsite.domain.services;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import sv.com.ti.donationsite.domain.entities.TransactionEntitie;
+import sv.com.ti.donationsite.domain.entities.TransactionEntity;
 import sv.com.ti.donationsite.repositories.TransactionRepository;
 
-import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
@@ -18,13 +17,13 @@ public class TransactionServiceImpl implements TransactionService{
 
     @Override
     @Transactional(readOnly = true)
-    public List<TransactionEntitie> getAllTransactions() {
+    public List<TransactionEntity> getAllTransactions() {
         return transactionRepository.findAll();
     }
 
     @Override
     public void saveTransaction(String cardOwner, String bankIssueId) {
-        TransactionEntitie transaction = new TransactionEntitie();
+        TransactionEntity transaction = new TransactionEntity();
         transaction.setCardOwner(cardOwner);
         transaction.setBankIssueId(bankIssueId);
         transaction.setDate(new Date());
@@ -32,12 +31,12 @@ public class TransactionServiceImpl implements TransactionService{
     }
 
     @Override
-    public TransactionEntitie getTransactionIdByCardOwnerAndBankIssueId(String cardOwner, String bankIssueId) {
+    public TransactionEntity getTransactionIdByCardOwnerAndBankIssueId(String cardOwner, String bankIssueId) {
         return transactionRepository.getTransactionEntitieByCardOwnerAndBankIssueId(cardOwner,bankIssueId);
     }
 
     @Override
-    public void deleteTransaction(TransactionEntitie transaction) {
+    public void deleteTransaction(TransactionEntity transaction) {
         //TODO: agregar el delete de transaction
     }
 }

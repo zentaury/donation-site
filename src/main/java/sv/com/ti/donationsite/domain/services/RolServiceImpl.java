@@ -3,7 +3,7 @@ package sv.com.ti.donationsite.domain.services;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import sv.com.ti.donationsite.domain.entities.RolEntitie;
+import sv.com.ti.donationsite.domain.entities.RolEntity;
 import sv.com.ti.donationsite.repositories.RolRepository;
 
 import java.util.List;
@@ -16,19 +16,19 @@ public class RolServiceImpl implements RolService{
 
     @Override
     @Transactional(readOnly = true)
-    public List<RolEntitie> getAllRoles() {
+    public List<RolEntity> getAllRoles() {
         return rolRepository.findAll();
     }
 
     @Override
     @Transactional(readOnly = true)
-    public RolEntitie findRol(RolEntitie rol) {
+    public RolEntity findRol(RolEntity rol) {
         return rolRepository.findById(rol.getRolId()).orElse(null);
     }
 
     @Override
     @Transactional
-    public void saveRol(RolEntitie rol) {
+    public void saveRol(RolEntity rol) {
         rolRepository.save(rol);
     }
 }

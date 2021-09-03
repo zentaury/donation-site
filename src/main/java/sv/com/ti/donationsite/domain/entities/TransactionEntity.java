@@ -8,7 +8,7 @@ import java.util.Date;
 @Data
 @Entity
 @Table(name = "transaction")
-public class TransactionEntitie {
+public class TransactionEntity {
     public static final long serialVersionUID = 1L;
 
     @Id

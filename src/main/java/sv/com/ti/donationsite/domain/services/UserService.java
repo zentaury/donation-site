@@ -10,8 +10,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import sv.com.ti.donationsite.domain.entities.RolEntitie;
-import sv.com.ti.donationsite.domain.entities.UserEntitie;
+import sv.com.ti.donationsite.domain.entities.RolEntity;
+import sv.com.ti.donationsite.domain.entities.UserEntity;
 import sv.com.ti.donationsite.repositories.UserRepository;
 
 import java.util.ArrayList;
@@ -27,20 +27,20 @@ public class UserService implements UserDetailsService {
     @Override
     @Transactional(readOnly = true)
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        UserEntitie user = userRepository.findByUsername(username);
+        UserEntity user = userRepository.findByUsername(username);
         if (user == null){
             throw new UsernameNotFoundException(username);
         }
         var roles = new ArrayList<GrantedAuthority>();
-        for (RolEntitie rol: user.getRoles()){
+        for (RolEntity rol: user.getRoles()){
             roles.add(new SimpleGrantedAuthority(rol.getName()));
         }
         return new User(user.getUsername(), user.getPassword(), roles);
     }
 
     @Transactional
-    public UserEntitie getUserEntityByUsername(String username) throws UsernameNotFoundException {
-        UserEntitie user = userRepository.findByUsername(username);
+    public UserEntity getUserEntityByUsername(String username) throws UsernameNotFoundException {
+        UserEntity user = userRepository.findByUsername(username);
         if (user == null){
             throw new UsernameNotFoundException(username);
         }
@@ -48,17 +48,17 @@ public class UserService implements UserDetailsService {
     }
 
     @Transactional
-    public void saveUser(UserEntitie user) {
+    public void saveUser(UserEntity user) {
         userRepository.save(user);
     }
 
     @Transactional(readOnly = true)
-    public List<UserEntitie> getAllUser(){
+    public List<UserEntity> getAllUser(){
         return userRepository.findAll();
     }
 
     @Transactional(readOnly = true)
-    public UserEntitie findUser(Long userId) {
+    public UserEntity findUser(Long userId) {
         return userRepository.findById(userId).orElse(null);
     }
 }

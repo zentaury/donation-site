@@ -5,22 +5,23 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import sv.com.ti.donationsite.domain.DTOs.RestResponse;
-import sv.com.ti.donationsite.domain.entities.CountryEntity;
-import sv.com.ti.donationsite.domain.services.CountryService;
+import sv.com.ti.donationsite.domain.entities.DonationEntity;
+import sv.com.ti.donationsite.domain.services.DonationService;
 
 import java.util.List;
 
 @RestController
-public class CountryRestController {
+public class DonationRestController {
 
     @Autowired
-    private CountryService countryService;
+    private DonationService donationService;
 
-    @GetMapping("/api/v1/countries")
-    public ResponseEntity getAllCountries(){
+
+    @GetMapping("/api/v1/donations")
+    public ResponseEntity getAllDonations(){
         try{
-            List<CountryEntity> countries = countryService.getAllCountries();
-            return ResponseEntity.ok(new RestResponse(true, "OK", countries));
+            List<DonationEntity> donations = donationService.findAllDonations();
+            return ResponseEntity.ok(new RestResponse(true, "OK", donations));
         }catch (Exception exception){
             return ResponseEntity.badRequest().body(new RestResponse(false, exception.getMessage(), null));
         }

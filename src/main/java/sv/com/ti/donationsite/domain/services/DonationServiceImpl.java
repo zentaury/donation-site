@@ -3,7 +3,7 @@ package sv.com.ti.donationsite.domain.services;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import sv.com.ti.donationsite.domain.entities.DonationEntitie;
+import sv.com.ti.donationsite.domain.entities.DonationEntity;
 import sv.com.ti.donationsite.repositories.DonationRepository;
 
 import java.util.Date;
@@ -15,15 +15,15 @@ public class DonationServiceImpl implements DonationService{
     @Autowired
     private DonationRepository donationRepository;
 
+
     @Override
-    @Transactional(readOnly = true)
-    public List<DonationEntitie> getAllDonations() {
-        return donationRepository.findAll();
+    public List<DonationEntity> findAllDonations() {
+        return donationRepository.findAllDonations();
     }
 
     @Override
     @Transactional(readOnly = true)
-    public List<DonationEntitie> findAllByUser(Long userId) {
+    public List<DonationEntity> findAllByUser(Long userId) {
         return donationRepository.findAllByUser(userId);
     }
 
@@ -35,19 +35,19 @@ public class DonationServiceImpl implements DonationService{
 
     @Override
     @Transactional
-    public void saveDonation(DonationEntitie donation) {
+    public void saveDonation(DonationEntity donation) {
         donationRepository.save(donation);
     }
 
     @Override
     @Transactional
-    public void deleteDonation(DonationEntitie donation) {
+    public void deleteDonation(DonationEntity donation) {
         donationRepository.delete(donation);
     }
 
     @Override
     @Transactional(readOnly = true)
-    public DonationEntitie findDonation(DonationEntitie donation) {
+    public DonationEntity findDonation(DonationEntity donation) {
         return donationRepository.findById(donation.getDonationId()).orElse(null);
     }
 }

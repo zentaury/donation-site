@@ -9,22 +9,16 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import sv.com.ti.donationsite.domain.DTOs.donation.DonationForm;
-import sv.com.ti.donationsite.domain.entities.CountryEntitie;
-import sv.com.ti.donationsite.domain.entities.DonationEntitie;
-import sv.com.ti.donationsite.domain.entities.TransactionEntitie;
-import sv.com.ti.donationsite.domain.entities.UserEntitie;
-import sv.com.ti.donationsite.domain.services.CountryService;
-import sv.com.ti.donationsite.domain.services.DonationService;
-import sv.com.ti.donationsite.domain.services.TransactionService;
-import sv.com.ti.donationsite.domain.services.UserService;
+import sv.com.ti.donationsite.domain.entities.CountryEntity;
+import sv.com.ti.donationsite.domain.entities.DonationEntity;
+import sv.com.ti.donationsite.domain.entities.TransactionEntity;
+import sv.com.ti.donationsite.domain.entities.UserEntity;
+import sv.com.ti.donationsite.domain.services.*;
 
-import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
@@ -45,27 +39,34 @@ public class DonationController {
     @Autowired
     private TransactionService transactionService;
 
+    @Autowired
+    private VisitService visitService;
+
     @GetMapping("/")
-    public String index(Model model, @AuthenticationPrincipal User user, UserEntitie userEntitie){
+    public String index(Model model, @AuthenticationPrincipal User user, UserEntity userEntitie){
 
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         String username = ((UserDetails)principal).getUsername();
-        UserEntitie userEntity = userService.getUserEntityByUsername(username);
-        Iterable<DonationEntitie> donatios = donationService.findAllByUser(userEntity.getUserId());
+        UserEntity userEntity = userService.getUserEntityByUsername(username);
+        Iterable<DonationEntity> donatios = donationService.findAllByUser(userEntity.getUserId());
+        int visitsPerDay = visitService.visitsPerDay(new Date());
+        Long allVisits = visitService.allVisits();
+        model.addAttribute("allVisits", allVisits);
+        model.addAttribute("visitsPerDay", visitsPerDay);
         model.addAttribute("donations", donatios);
         return "index";
     }
 
     @GetMapping("/donation")
-    public String donation(Model model, @AuthenticationPrincipal User user, UserEntitie userEntitie){
+    public String donation(Model model, @AuthenticationPrincipal User user, UserEntity userEntitie){
 
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
         String username = ((UserDetails)principal).getUsername();
 
-        UserEntitie userEntity = userService.getUserEntityByUsername(username);
+        UserEntity userEntity = userService.getUserEntityByUsername(username);
 
-        List<CountryEntitie> countries = countryService.getAllCountries();
+        List<CountryEntity> countries = countryService.getAllCountries();
 
         model.addAttribute("userName", userEntity.getName());
         model.addAttribute("userSurname",  userEntity.getSurnames());
@@ -83,8 +84,8 @@ public class DonationController {
         UUID uuid= UUID.randomUUID();
 
         transactionService.saveTransaction(donationForm.getCardOwner(),uuid.toString());
-        TransactionEntitie transaction = transactionService.getTransactionIdByCardOwnerAndBankIssueId(donationForm.getCardOwner(),uuid.toString());
-        DonationEntitie donation = new DonationEntitie();
+        TransactionEntity transaction = transactionService.getTransactionIdByCardOwnerAndBankIssueId(donationForm.getCardOwner(),uuid.toString());
+        DonationEntity donation = new DonationEntity();
 
 
         int donationCount = donationService.donationCount(donationForm.getCountryId(), new Date(), new Date());
@@ -95,7 +96,7 @@ public class DonationController {
 
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         String username = ((UserDetails)principal).getUsername();
-        UserEntitie userEntity = userService.getUserEntityByUsername(username);
+        UserEntity userEntity = userService.getUserEntityByUsername(username);
         donation.setUserId(userEntity.getUserId());
         donation.setTransactionId(transaction.getTransactionId());
         donation.setCountryId(donationForm.getCountryId());

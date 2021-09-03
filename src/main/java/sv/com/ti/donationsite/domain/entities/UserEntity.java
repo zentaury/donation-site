@@ -9,7 +9,7 @@ import java.util.List;
 @Data
 @Entity
 @Table(name = "user")
-public class UserEntitie implements Serializable {
+public class UserEntity implements Serializable {
 
     private static final long serialVersionUID =1L;
 
@@ -22,7 +22,7 @@ public class UserEntitie implements Serializable {
 
     @OneToMany
     @JoinColumn(name = "user_fk")
-    private List<RolEntitie> roles;
+    private List<RolEntity> roles;
 
     private String surnames;
     private String name;
