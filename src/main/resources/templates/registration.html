@@ -28,41 +28,44 @@
                         </div>
                         <div class="card-body">
                             <form th:action="@{/user/registration}" method="post" th:object="${userEntitie}">
-                                <div class="form-group">
+                                <div class="form-group row">
                                     <label for="countryId">Country</label>
-                                    <input type="text" name="countryId" th:field="*{countryId}" class="form-control"/>
+                                  <select th:field="*{countryId}" class="form-control" id="countryId">
+                                        <option th:each="country:${countries}"
+                                                th:value="${country.id}"
+                                                th:text="${country.name}"/>
+                                  </select>
                                 </div>
-                                <div class="form-group">
+
+                                <div class="form-group row">
                                     <label for="surnames">Surnames</label>
                                     <input type="text" name="surnames" th:field="*{surnames}" class="form-control"/>
                                 </div>
-                                <div class="form-group">
-                                </div>
-                                <div class="form-group">
+                                <div class="form-group row">
                                     <label for="name">Name</label>
                                     <input type="text" name="name" th:field="*{name}" class="form-control"/>
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group row">
                                     <label for="email">email</label>
                                     <input type="email" name="email" th:field="*{email}" class="form-control"/>
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group row">
                                     <label for="username">Username</label>
                                     <input type="text" name="username" th:field="*{username}" class="form-control"/>
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group row">
                                     <label for="password">Password</label>
                                     <input type="password" name="password" th:field="*{password}" class="form-control"/>
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group row">
                                     <label for="idDocument">ID Document</label>
                                     <input type="text" name="idDocument" th:field="*{idDocument}" class="form-control"/>
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group row">
                                     <label for="institution">Institution</label>
                                     <input type="text" name="institution" th:field="*{institution}" class="form-control"/>
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group row">
                                     <input type="submit" name="save" value="save" class="btn btn-primary btn-block">
                                 </div>
                             </form>
