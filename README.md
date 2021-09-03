@@ -1,4 +1,4 @@
-#ONLINE DONATION SITE
+# ONLINE DONATION SITE
 he following project follows a creation under MVC and DDD structure following the order for an orderly and persistent development, suitable for scalability.
 
 ## INSTRUCTIONS 
@@ -6,6 +6,15 @@ he following project follows a creation under MVC and DDD structure following th
 2. If you have a password for your database manager you can place it in the application.properties file to be able to connect correctly.
 3. Download the MAVEN dependencies for the correct operation of the project.
 4. Run the application.
+
+## ENDPOINTS
+```
+localhost/api/v1/donations
+```
+```
+localhost/api/v1/countries
+```
+
 
 ## PROJECT STRUCTURE
 
