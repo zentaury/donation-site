@@ -14,7 +14,9 @@ public class TransactionEntitie {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long transactionId;
+    @Column(name = "card_owner")
     private String cardOwner;
+    @Column(name = "bank_issue_id")
     private String bankIssueId;
     private Date date;
 }

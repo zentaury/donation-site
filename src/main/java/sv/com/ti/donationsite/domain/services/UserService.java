@@ -47,4 +47,9 @@ public class UserService implements UserDetailsService {
     public List<UserEntitie> getAllUser(){
         return userRepository.findAll();
     }
+
+    @Transactional(readOnly = true)
+    public UserEntitie findUser(Long userId) {
+        return userRepository.findById(userId).orElse(null);
+    }
 }

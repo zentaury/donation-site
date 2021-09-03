@@ -21,6 +21,13 @@ public class DonationServiceImpl implements DonationService{
     }
 
     @Override
+    @Transactional(readOnly = true)
+    public List<DonationEntitie> findAllByUser(Long userId) {
+        return donationRepository.findAllByUser(userId);
+    }
+
+
+    @Override
     @Transactional
     public void saveDonation(DonationEntitie donation) {
         donationRepository.save(donation);
