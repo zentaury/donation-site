@@ -11,5 +11,5 @@ public interface TransactionService {
 
     public TransactionEntity getTransactionIdByCardOwnerAndBankIssueId(String cardOwner, String bankIssueId);
 
-    public void deleteTransaction(TransactionEntity transaction);
+
 }

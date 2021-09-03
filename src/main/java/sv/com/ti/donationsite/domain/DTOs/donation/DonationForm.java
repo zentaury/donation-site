@@ -5,7 +5,16 @@ public class DonationForm {
     Long CountryId;
     Double Amount;
 
-    public DonationForm(String userName, String surname, String institution, String cardOwner, String cardNumber, String expiration, String CVV, Long countryId, Double Amount) {
+    public DonationForm(
+            String userName,
+            String surname,
+            String institution,
+            String cardOwner,
+            String cardNumber,
+            String expiration,
+            String CVV,
+            Long countryId,
+            Double Amount) {
         UserName = userName;
         Surname = surname;
         Institution = institution;

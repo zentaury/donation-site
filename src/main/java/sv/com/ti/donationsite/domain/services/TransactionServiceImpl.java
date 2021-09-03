@@ -35,8 +35,5 @@ public class TransactionServiceImpl implements TransactionService{
         return transactionRepository.getTransactionEntitieByCardOwnerAndBankIssueId(cardOwner,bankIssueId);
     }
 
-    @Override
-    public void deleteTransaction(TransactionEntity transaction) {
-        //TODO: agregar el delete de transaction
-    }
+
 }
