@@ -7,7 +7,15 @@
 </head>
 <body>
 <header th:replace="templates.layout/template :: header"></header>
-Donacion hecha con exito compadre, regresa al inicio porfa!.
-ID De donacion: 123123123
+<div class="d-flex justify-content-center" style="margin-top: 50px;">
+    <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="https://c.tenor.com/8J6yUfmRW4UAAAAC/john-cena-you-cant-see-me.gif" alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title">THANK YOU!</h5>
+            <p class="card-text">Thank you for your donation you are amazing!</p>
+            <a th:href="@{/}" class="btn btn-primary">Show Me The Money!</a>
+        </div>
+    </div>
+</div>
 </body>
 </html>

@@ -31,10 +31,6 @@
                         </div>
                     </div>
                 </div>
-
-
-
-
                 <div class="row">
                     <div class="col-md-6 mb-3">
                         <label for="CountryId">Country</label>
@@ -81,28 +77,28 @@
                 <div class="row">
                     <div class="col-md-3 mb-3">
                         <label for="Expiration">Expiration</label>
-                        <input type="text" class="form-control" id="Expiration" name="Expiration" placeholder="" required>
+                        <input maxlength="5" type="text" class="form-control" id="Expiration" name="Expiration" placeholder="" required>
                         <div class="invalid-feedback">
                             Expiration date required
                         </div>
                     </div>
                     <div class="col-md-3 mb-3">
                         <label for="CVV">CVV</label>
-                        <input type="text" class="form-control" id="CVV" name="CVV" placeholder="" required>
+                        <input maxlength="3" type="text" class="form-control" id="CVV" name="CVV" placeholder="" required>
                         <div class="invalid-feedback">
                             Security code required
                         </div>
                     </div>
                     <div class="col-md-3 mb-3">
                         <label for="Amount">Amount</label>
-                        <input type="number" min="0" class="form-control" id="Amount" name="Amount" placeholder="" required>
+                        <input pattern="\d*" type="number" min="0" maxlength="4" class="form-control" id="Amount" name="Amount" placeholder="" required>
                         <div class="invalid-feedback">
                             Security code required
                         </div>
                     </div>
                 </div>
                 <hr class="mb-4">
-                <button class="btn btn-primary btn-lg btn-block" type="submit">Continue to checkout</button>
+                <button class="btn btn-primary btn-lg btn-block" type="submit">Donate!</button>
             </form>
         </div>
     </div>

@@ -41,8 +41,10 @@ public class DonationController {
 
     @Autowired
     private CountryService countryService;
+
     @Autowired
     private TransactionService transactionService;
+
     @GetMapping("/")
     public String index(Model model, @AuthenticationPrincipal User user, UserEntitie userEntitie){
 
@@ -58,9 +60,13 @@ public class DonationController {
     public String donation(Model model, @AuthenticationPrincipal User user, UserEntitie userEntitie){
 
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
         String username = ((UserDetails)principal).getUsername();
+
         UserEntitie userEntity = userService.getUserEntityByUsername(username);
+
         List<CountryEntitie> countries = countryService.getAllCountries();
+
         model.addAttribute("userName", userEntity.getName());
         model.addAttribute("userSurname",  userEntity.getSurnames());
         model.addAttribute("userInstitution", userEntity.getInstitution());
@@ -79,7 +85,14 @@ public class DonationController {
         transactionService.saveTransaction(donationForm.getCardOwner(),uuid.toString());
         TransactionEntitie transaction = transactionService.getTransactionIdByCardOwnerAndBankIssueId(donationForm.getCardOwner(),uuid.toString());
         DonationEntitie donation = new DonationEntitie();
-        //Hacer validacion de pais y fecha pa no dejar insertar
+
+
+        int donationCount = donationService.donationCount(donationForm.getCountryId(), new Date(), new Date());
+
+        if (donationCount > 0){
+            return "donationFailed";
+        }
+
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         String username = ((UserDetails)principal).getUsername();
         UserEntitie userEntity = userService.getUserEntityByUsername(username);
