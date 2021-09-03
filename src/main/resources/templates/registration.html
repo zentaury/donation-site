@@ -3,44 +3,74 @@
       xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
       lang="en">
-<head>
-    <meta charset="UTF-8"/>
-    <title>Sing Up</title>
+<head th:replace="templates.layout/template :: head">
+    <meta charset="UTF-8">
+    <title>Sign Up</title>
 </head>
 <body>
-    <h1>Sing Up</h1>
-    <a th:href="@{/}">Regresar</a>
+    <header th:replace="templates.layout/template :: header"></header>
 
-    <form th:action="@{/user/registration}" method="post" th:object="${userEntitie}">
-        <label for="countryId">Country</label>
-        <input type="text" name="countryId" th:field="*{countryId}"/>
-        <br/>
-        <label for="surnames">Surnames</label>
-        <input type="text" name="surnames" th:field="*{surnames}"/>
-        <br/>
-        <label for="name">Name</label>
-        <input type="text" name="name" th:field="*{name}"/>
-        <br/>
-        <label for="email">email</label>
-        <input type="email" name="email" th:field="*{email}"/>
-        <br/>
-        <label for="username">Username</label>
-        <input type="text" name="username" th:field="*{username}"/>
-        <br/>
-        <label for="password">Password</label>
-        <input type="password" name="password" th:field="*{password}"/>
-        <br/>
-        <label for="idDocument">ID Document</label>
-        <input type="text" name="idDocument" th:field="*{idDocument}"/>
-        <br/>
-        <label for="institution">Institution</label>
-        <input type="text" name="institution" th:field="*{institution}"/>
-        <br/>
-        <input type="submit" name="save" value="save">
-    </form>
+    <section id="actions" class="py-4 mb-4 bg-light">
+        <div class="container">
+            <div class="row">
 
+            </div>
+        </div>
+    </section>
 
-
-
+    <section id="registration">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 mx-auto">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4>Sign Up</h4>
+                        </div>
+                        <div class="card-body">
+                            <form th:action="@{/user/registration}" method="post" th:object="${userEntitie}">
+                                <div class="form-group">
+                                    <label for="countryId">Country</label>
+                                    <input type="text" name="countryId" th:field="*{countryId}" class="form-control"/>
+                                </div>
+                                <div class="form-group">
+                                    <label for="surnames">Surnames</label>
+                                    <input type="text" name="surnames" th:field="*{surnames}" class="form-control"/>
+                                </div>
+                                <div class="form-group">
+                                </div>
+                                <div class="form-group">
+                                    <label for="name">Name</label>
+                                    <input type="text" name="name" th:field="*{name}" class="form-control"/>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">email</label>
+                                    <input type="email" name="email" th:field="*{email}" class="form-control"/>
+                                </div>
+                                <div class="form-group">
+                                    <label for="username">Username</label>
+                                    <input type="text" name="username" th:field="*{username}" class="form-control"/>
+                                </div>
+                                <div class="form-group">
+                                    <label for="password">Password</label>
+                                    <input type="password" name="password" th:field="*{password}" class="form-control"/>
+                                </div>
+                                <div class="form-group">
+                                    <label for="idDocument">ID Document</label>
+                                    <input type="text" name="idDocument" th:field="*{idDocument}" class="form-control"/>
+                                </div>
+                                <div class="form-group">
+                                    <label for="institution">Institution</label>
+                                    <input type="text" name="institution" th:field="*{institution}" class="form-control"/>
+                                </div>
+                                <div class="form-group">
+                                    <input type="submit" name="save" value="save" class="btn btn-primary btn-block">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 </body>
 </html>
