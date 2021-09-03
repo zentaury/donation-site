@@ -68,7 +68,7 @@ CREATE TABLE `donation` (
   CONSTRAINT `donation_country_fk` FOREIGN KEY (`country_fk`) REFERENCES `country` (`id`),
   CONSTRAINT `transaction_fk` FOREIGN KEY (`transaction_fk`) REFERENCES `transaction` (`transaction_id`) ON UPDATE CASCADE,
   CONSTRAINT `user_fk` FOREIGN KEY (`user_fk`) REFERENCES `user` (`user_id`) ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -77,7 +77,7 @@ CREATE TABLE `donation` (
 
 LOCK TABLES `donation` WRITE;
 /*!40000 ALTER TABLE `donation` DISABLE KEYS */;
-INSERT INTO `donation` VALUES (2,2,1,64,'ONG El Salvador',100.00000,'1000-01-01 00:00:00'),(3,10,2,64,'SHREK SA. CV.',1000.00000,'2021-09-03 07:06:40'),(4,10,3,64,'SHREK SA. CV.',5000.00000,'2021-09-03 07:59:13'),(5,9,9,52,'ONG El Salvador',500.00000,'2021-09-03 08:09:43'),(6,2,25,47,'ONG El Salvador',1000.00000,'2021-09-03 08:30:32'),(7,2,29,43,'ONG El Salvador',5000.00000,'2021-09-03 08:38:07'),(8,2,30,44,'ONG El Salvador',100.00000,'2021-09-03 08:43:46'),(9,2,31,55,'ONG El Salvador',400.00000,'2021-09-03 08:44:38'),(10,11,37,30,'COCA-COLA S.A. DE C.V.',500.00000,'2021-09-03 08:57:53'),(11,2,38,54,'ONG El Salvador',500.00000,'2021-09-03 10:51:33');
+INSERT INTO `donation` VALUES (2,2,1,64,'ONG El Salvador',100.00000,'1000-01-01 00:00:00'),(3,10,2,64,'SHREK SA. CV.',1000.00000,'2021-09-03 07:06:40'),(4,10,3,64,'SHREK SA. CV.',5000.00000,'2021-09-03 07:59:13'),(5,9,9,52,'ONG El Salvador',500.00000,'2021-09-03 08:09:43'),(6,2,25,47,'ONG El Salvador',1000.00000,'2021-09-03 08:30:32'),(7,2,29,43,'ONG El Salvador',5000.00000,'2021-09-03 08:38:07'),(8,2,30,44,'ONG El Salvador',100.00000,'2021-09-03 08:43:46'),(9,2,31,55,'ONG El Salvador',400.00000,'2021-09-03 08:44:38'),(10,11,37,30,'COCA-COLA S.A. DE C.V.',500.00000,'2021-09-03 08:57:53'),(11,2,38,54,'ONG El Salvador',500.00000,'2021-09-03 10:51:33'),(12,12,40,49,'CORP S.A. de C.V.',500.00000,'2021-09-03 13:58:41'),(13,13,41,62,'Nueva S.A. de C.V.',500.00000,'2021-09-03 16:40:51');
 /*!40000 ALTER TABLE `donation` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -95,7 +95,7 @@ CREATE TABLE `rol` (
   PRIMARY KEY (`rol_id`),
   KEY `user_fk_idx` (`user_fk`),
   CONSTRAINT `user_rol_fk` FOREIGN KEY (`user_fk`) REFERENCES `user` (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -104,7 +104,7 @@ CREATE TABLE `rol` (
 
 LOCK TABLES `rol` WRITE;
 /*!40000 ALTER TABLE `rol` DISABLE KEYS */;
-INSERT INTO `rol` VALUES (1,'ROLE_ADMIN',2),(2,'ROLE_USER',2),(7,'ROLE_USER',9),(8,'ROLE_USER',10),(9,'ROLE_USER',11);
+INSERT INTO `rol` VALUES (1,'ROLE_ADMIN',2),(2,'ROLE_USER',2),(7,'ROLE_USER',9),(8,'ROLE_USER',10),(9,'ROLE_USER',11),(10,'ROLE_USER',12),(11,'ROLE_USER',13);
 /*!40000 ALTER TABLE `rol` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -121,7 +121,7 @@ CREATE TABLE `transaction` (
   `bank_issue_id` varchar(500) NOT NULL,
   `date` datetime NOT NULL,
   PRIMARY KEY (`transaction_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -130,7 +130,7 @@ CREATE TABLE `transaction` (
 
 LOCK TABLES `transaction` WRITE;
 /*!40000 ALTER TABLE `transaction` DISABLE KEYS */;
-INSERT INTO `transaction` VALUES (1,'Juan Carlos Zepeda Abrego','1','1000-01-01 00:00:00'),(2,'Tony Saca','1f77ab54-1aef-4044-8ff5-712e40bb6139','2021-09-03 07:06:40'),(3,'Tony Saca','e70b50ef-dbef-4833-a839-ed0b5c5e05e3','2021-09-03 07:58:19'),(4,'Tony Saca','7314dca3-8de7-4cdf-b14e-854a545ae2af','2021-09-03 07:59:57'),(5,'Tony Saca','82ddb334-fd18-4f20-93a0-0115b8ef91ca','2021-09-03 08:01:56'),(6,'Tony Saca','83166dec-a953-4f3c-92db-983262c10ed9','2021-09-03 08:02:18'),(7,'Tony Saca','b11e5f31-dd73-42b0-aea6-f6f58510a1f8','2021-09-03 08:05:14'),(8,'Tony Saca','785d2082-5aa8-44f6-8614-04bfef7f4526','2021-09-03 08:07:54'),(9,'Luis Ángel Albanez Albeño','5c1e78cd-1dbb-4be9-82d8-921d4081ca1b','2021-09-03 08:09:37'),(10,'Luis Ángel Albanez Albeño','7af3587b-dc3b-4fe0-a9f5-589f5613131b','2021-09-03 08:12:18'),(11,'Luis Ángel Albanez Albeño','04bb3e80-2d04-4127-9296-427c7586e6ae','2021-09-03 08:13:04'),(12,'Luis Ángel Albanez Albeño','78248a58-68bb-4911-a642-84afcf03dba0','2021-09-03 08:16:59'),(13,'Luis Ángel Albanez Albeño','5bc3d9d6-cda9-4ca3-a1cf-5df19352ac97','2021-09-03 08:18:15'),(14,'Luis Ángel Albanez Albeño','00dab971-2325-4fc3-99f9-e13d7f95972c','2021-09-03 08:18:34'),(15,'Luis Ángel Albanez Albeño','898e662b-b4d8-40f3-8c15-213db343ca5f','2021-09-03 08:19:53'),(16,'Luis Ángel Albanez Albeño','d210b042-411c-4a6b-9497-fd6d818d53a5','2021-09-03 08:20:11'),(17,'Luis Ángel Albanez Albeño','c150d873-c249-4d9f-9e04-91dcfd9912f2','2021-09-03 08:21:00'),(18,'Luis Ángel Albanez Albeño','cbebdda7-1141-4a28-99d5-d3634dc76599','2021-09-03 08:23:34'),(19,'Luis Ángel Albanez Albeño','4e53e32b-91ba-40f2-b47f-8cdf17492370','2021-09-03 08:23:39'),(20,'Luis Ángel Albanez Albeño','d3a2a3fb-dd94-45d6-a55d-00764597ab32','2021-09-03 08:24:22'),(21,'Luis Ángel Albanez Albeño','2dae788e-6ffd-4e64-88ba-afa0f3b7dc19','2021-09-03 08:27:41'),(22,'Juan Carlos Zepeda','7d425f30-97d9-4a13-94b8-caadc822aa22','2021-09-03 08:29:02'),(23,'123123','a0bf1cb1-079d-44e3-b37a-64a1928365a2','2021-09-03 08:29:41'),(24,'Juan Carlos Zepeda','60b44cd0-c3dd-442a-97bf-1079e2754df5','2021-09-03 08:30:03'),(25,'Juan Carlos Zepeda','d016e608-debf-4f88-af33-fe7642c92c04','2021-09-03 08:30:32'),(26,'Juan Carlos Zepeda','1359a427-3941-4c59-9e23-aba64c820111','2021-09-03 08:30:55'),(27,'Juan Carlos Zepeda','db63a49f-eb88-4031-a6d7-d790aac3740e','2021-09-03 08:34:12'),(28,'123123','54365392-778f-4bba-9a28-50557477ac3f','2021-09-03 08:34:29'),(29,'Juan Carlos Zepeda','b51afd21-6ee8-444f-b9ce-df2874cc4ae4','2021-09-03 08:38:07'),(30,'1231231','f08ef7b3-6564-4e7e-9123-e5cd51ee2079','2021-09-03 08:43:46'),(31,'Juan Carlos Zepeda','8aabd3f7-5011-497f-996f-88414dd1d9fc','2021-09-03 08:44:38'),(32,'Juan Carlos Zepeda','792ca2c4-f37f-4162-8a2a-e3dc9e16cc2f','2021-09-03 08:46:03'),(33,'Juan Carlos Zepeda','b50144b3-3c60-4cbb-b90d-49188a63fc7f','2021-09-03 08:46:06'),(34,'Juan Carlos Zepeda','9a225f2f-1527-4768-bd6e-6944eaeb56d5','2021-09-03 08:46:09'),(35,'Juan Carlos Zepeda','57c31ac3-445c-479f-8dd8-01f30d7ae610','2021-09-03 08:47:47'),(36,'Benjamin lopez','8884259d-3729-402c-ac1d-8f30e138b15b','2021-09-03 08:57:26'),(37,'Benjamin lopez','af57bd3e-ec10-49a1-a7de-b2282d356b27','2021-09-03 08:57:53'),(38,'Juan Carlos Zepeda','fb00f9d7-86e7-418f-80dc-44b470d85b8a','2021-09-03 10:51:33');
+INSERT INTO `transaction` VALUES (1,'Juan Carlos Zepeda Abrego','1','1000-01-01 00:00:00'),(2,'Tony Saca','1f77ab54-1aef-4044-8ff5-712e40bb6139','2021-09-03 07:06:40'),(3,'Tony Saca','e70b50ef-dbef-4833-a839-ed0b5c5e05e3','2021-09-03 07:58:19'),(4,'Tony Saca','7314dca3-8de7-4cdf-b14e-854a545ae2af','2021-09-03 07:59:57'),(5,'Tony Saca','82ddb334-fd18-4f20-93a0-0115b8ef91ca','2021-09-03 08:01:56'),(6,'Tony Saca','83166dec-a953-4f3c-92db-983262c10ed9','2021-09-03 08:02:18'),(7,'Tony Saca','b11e5f31-dd73-42b0-aea6-f6f58510a1f8','2021-09-03 08:05:14'),(8,'Tony Saca','785d2082-5aa8-44f6-8614-04bfef7f4526','2021-09-03 08:07:54'),(9,'Luis Ángel Albanez Albeño','5c1e78cd-1dbb-4be9-82d8-921d4081ca1b','2021-09-03 08:09:37'),(10,'Luis Ángel Albanez Albeño','7af3587b-dc3b-4fe0-a9f5-589f5613131b','2021-09-03 08:12:18'),(11,'Luis Ángel Albanez Albeño','04bb3e80-2d04-4127-9296-427c7586e6ae','2021-09-03 08:13:04'),(12,'Luis Ángel Albanez Albeño','78248a58-68bb-4911-a642-84afcf03dba0','2021-09-03 08:16:59'),(13,'Luis Ángel Albanez Albeño','5bc3d9d6-cda9-4ca3-a1cf-5df19352ac97','2021-09-03 08:18:15'),(14,'Luis Ángel Albanez Albeño','00dab971-2325-4fc3-99f9-e13d7f95972c','2021-09-03 08:18:34'),(15,'Luis Ángel Albanez Albeño','898e662b-b4d8-40f3-8c15-213db343ca5f','2021-09-03 08:19:53'),(16,'Luis Ángel Albanez Albeño','d210b042-411c-4a6b-9497-fd6d818d53a5','2021-09-03 08:20:11'),(17,'Luis Ángel Albanez Albeño','c150d873-c249-4d9f-9e04-91dcfd9912f2','2021-09-03 08:21:00'),(18,'Luis Ángel Albanez Albeño','cbebdda7-1141-4a28-99d5-d3634dc76599','2021-09-03 08:23:34'),(19,'Luis Ángel Albanez Albeño','4e53e32b-91ba-40f2-b47f-8cdf17492370','2021-09-03 08:23:39'),(20,'Luis Ángel Albanez Albeño','d3a2a3fb-dd94-45d6-a55d-00764597ab32','2021-09-03 08:24:22'),(21,'Luis Ángel Albanez Albeño','2dae788e-6ffd-4e64-88ba-afa0f3b7dc19','2021-09-03 08:27:41'),(22,'Juan Carlos Zepeda','7d425f30-97d9-4a13-94b8-caadc822aa22','2021-09-03 08:29:02'),(23,'123123','a0bf1cb1-079d-44e3-b37a-64a1928365a2','2021-09-03 08:29:41'),(24,'Juan Carlos Zepeda','60b44cd0-c3dd-442a-97bf-1079e2754df5','2021-09-03 08:30:03'),(25,'Juan Carlos Zepeda','d016e608-debf-4f88-af33-fe7642c92c04','2021-09-03 08:30:32'),(26,'Juan Carlos Zepeda','1359a427-3941-4c59-9e23-aba64c820111','2021-09-03 08:30:55'),(27,'Juan Carlos Zepeda','db63a49f-eb88-4031-a6d7-d790aac3740e','2021-09-03 08:34:12'),(28,'123123','54365392-778f-4bba-9a28-50557477ac3f','2021-09-03 08:34:29'),(29,'Juan Carlos Zepeda','b51afd21-6ee8-444f-b9ce-df2874cc4ae4','2021-09-03 08:38:07'),(30,'1231231','f08ef7b3-6564-4e7e-9123-e5cd51ee2079','2021-09-03 08:43:46'),(31,'Juan Carlos Zepeda','8aabd3f7-5011-497f-996f-88414dd1d9fc','2021-09-03 08:44:38'),(32,'Juan Carlos Zepeda','792ca2c4-f37f-4162-8a2a-e3dc9e16cc2f','2021-09-03 08:46:03'),(33,'Juan Carlos Zepeda','b50144b3-3c60-4cbb-b90d-49188a63fc7f','2021-09-03 08:46:06'),(34,'Juan Carlos Zepeda','9a225f2f-1527-4768-bd6e-6944eaeb56d5','2021-09-03 08:46:09'),(35,'Juan Carlos Zepeda','57c31ac3-445c-479f-8dd8-01f30d7ae610','2021-09-03 08:47:47'),(36,'Benjamin lopez','8884259d-3729-402c-ac1d-8f30e138b15b','2021-09-03 08:57:26'),(37,'Benjamin lopez','af57bd3e-ec10-49a1-a7de-b2282d356b27','2021-09-03 08:57:53'),(38,'Juan Carlos Zepeda','fb00f9d7-86e7-418f-80dc-44b470d85b8a','2021-09-03 10:51:33'),(39,'José Antonio','2421e3aa-55ca-4c15-89fb-6b4ac1426d6a','2021-09-03 13:58:06'),(40,'José Molina','d14a742c-9777-4808-98a2-e332631a261a','2021-09-03 13:58:41'),(41,'Gabriel Gonzales','80a4356a-1f43-4481-9b9d-c409920b1483','2021-09-03 16:40:51'),(42,'Gabriel Gonzales','e44cd5ed-948a-4abd-b565-4d6888b9be51','2021-09-03 16:42:12');
 /*!40000 ALTER TABLE `transaction` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -154,7 +154,7 @@ CREATE TABLE `user` (
   PRIMARY KEY (`user_id`),
   KEY `country_fk_idx` (`country_fk`),
   CONSTRAINT `country_fk` FOREIGN KEY (`country_fk`) REFERENCES `country` (`id`) ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -163,7 +163,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (2,64,'Zepeda Abrego','Juan Carlos','juan97zepda@gmail.com','zentaury','$2a$10$SU6ABtiBk/vEVL0FRXAofeLJnglXIzMoJ4DoziH5KumiXZobIAl4m','05565443-0','ONG El Salvador'),(3,64,'Aguirre Linares','Carlos Ernesto','carlos@email.com','carlosal','123','000000','ONG El Salvador'),(4,64,'Zavaleta Rodas','Julio Antonio','julio@email.com','juliozr','$2a$10$wqqFd90Ycdtio97bAr6O2.bq3PVpNxEW7Umf6xOSY35HAWZGvReRq','00009','ONG El Salvador'),(9,52,'Albanes Albeño','Luis Ángel','luis@email.com','langel','$2a$10$p5VJMh0Vs9TfGHD52F7Dc.YxoBYbAAZk.hw2KNDuksd7ZbuTY.L0G','0132903','ONG El Salvador'),(10,64,'Banderas','Antonio ','gatito@email.com','elgatoconbotas','$2a$10$LAg7uRQ8X1nD4U409Tm3q.zl/gs0IQI/bp.l2A.QJQdrEW2x4dKOW','88898989','SHREK SA. CV.'),(11,64,'Lopez','Benjamin','benja@email.com','benlop','$2a$10$9pJhYYrTP2YBFlO4F5i0LeSqPdurFn1rIebuCZkHZEmPsEASCCvl2','948616','COCA-COLA S.A. DE C.V.');
+INSERT INTO `user` VALUES (2,64,'Zepeda Abrego','Juan Carlos','juan97zepda@gmail.com','zentaury','$2a$10$SU6ABtiBk/vEVL0FRXAofeLJnglXIzMoJ4DoziH5KumiXZobIAl4m','05565443-0','ONG El Salvador'),(3,64,'Aguirre Linares','Carlos Ernesto','carlos@email.com','carlosal','123','000000','ONG El Salvador'),(4,64,'Zavaleta Rodas','Julio Antonio','julio@email.com','juliozr','$2a$10$wqqFd90Ycdtio97bAr6O2.bq3PVpNxEW7Umf6xOSY35HAWZGvReRq','00009','ONG El Salvador'),(9,52,'Albanes Albeño','Luis Ángel','luis@email.com','langel','$2a$10$p5VJMh0Vs9TfGHD52F7Dc.YxoBYbAAZk.hw2KNDuksd7ZbuTY.L0G','0132903','ONG El Salvador'),(10,64,'Banderas','Antonio ','gatito@email.com','elgatoconbotas','$2a$10$LAg7uRQ8X1nD4U409Tm3q.zl/gs0IQI/bp.l2A.QJQdrEW2x4dKOW','88898989','SHREK SA. CV.'),(11,64,'Lopez','Benjamin','benja@email.com','benlop','$2a$10$9pJhYYrTP2YBFlO4F5i0LeSqPdurFn1rIebuCZkHZEmPsEASCCvl2','948616','COCA-COLA S.A. DE C.V.'),(12,64,'Molina Santos','José Antonio','chepe@email.com','chepesantos','$2a$10$G0/igXAI5jkVwq/QMEGS4e9keRI7ZU6tzsbPagUH7UCqI3Vnx719S','8766181','CORP S.A. de C.V.'),(13,62,'Gonzales ','Gabriel Enrique','gab@email.com','gabgo','$2a$10$NWBHFYHs7wgjyFGElO0Yfu0Y1C3/ljXsn4LokY5.k/IzlGiSGYJUy','05565443-0','Nueva S.A. de C.V.');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -178,7 +178,7 @@ CREATE TABLE `visit` (
   `visit_id` int NOT NULL AUTO_INCREMENT,
   `date` datetime DEFAULT NULL,
   PRIMARY KEY (`visit_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -187,7 +187,7 @@ CREATE TABLE `visit` (
 
 LOCK TABLES `visit` WRITE;
 /*!40000 ALTER TABLE `visit` DISABLE KEYS */;
-INSERT INTO `visit` VALUES (1,'2021-09-03 11:10:51'),(2,'2021-09-03 11:11:00'),(3,'2021-09-03 11:30:58'),(4,'2021-09-03 11:31:00');
+INSERT INTO `visit` VALUES (1,'2021-09-03 11:10:51'),(2,'2021-09-03 11:11:00'),(3,'2021-09-03 11:30:58'),(4,'2021-09-03 11:31:00'),(5,'2021-09-03 11:51:09'),(6,'2021-09-03 12:31:55'),(7,'2021-09-03 12:32:04'),(8,'2021-09-03 13:56:40'),(9,'2021-09-03 13:57:32'),(10,'2021-09-03 15:14:05'),(11,'2021-09-03 15:18:28'),(12,'2021-09-03 15:18:31'),(13,'2021-09-03 15:18:57'),(14,'2021-09-03 15:19:00'),(15,'2021-09-03 15:21:43'),(16,'2021-09-03 15:21:45'),(17,'2021-09-03 15:58:41'),(18,'2021-09-03 15:58:44'),(19,'2021-09-03 16:04:59'),(20,'2021-09-03 16:05:02'),(21,'2021-09-03 16:06:14'),(22,'2021-09-03 16:26:59'),(23,'2021-09-03 16:35:45'),(24,'2021-09-03 16:36:01'),(25,'2021-09-03 16:38:53'),(26,'2021-09-03 16:44:48');
 /*!40000 ALTER TABLE `visit` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -200,4 +200,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-09-03  5:38:46
+-- Dump completed on 2021-09-03 10:46:51
